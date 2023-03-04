@@ -1,19 +1,26 @@
 import React from "react";
-import {auth, provider} from '../firebase-config';
-import {signInWithPopup} from 'firebase/auth';
+import {useState} from "react"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../../firebaseconfig"
 
-function Login() {
+const Login = () => {
+    const [error, setError] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const signInWithGoogle = () => {
-        signInWithPopup(auth, provider).then((result) => {
-            
-        })
+    const handleLogin = (e)=> {
+        e.preventDefault();
     }
 
-    return <div className="loginPage">
-        <p>Sign In With Google to Continue</p>
-        <button className="login-with-google-btn">Sign in with Google</button>
-    </div>
+    return (<div>
+        <form onSubmit={handleLogin}>
+            <input type="email" placeholder="email" onChange={e=>setEmail(e.target.value)} />
+            <input type="password" placeholder="password" onChange={e=>setPassword(e.target.value)} />
+            <button type="submit">Login</button>
+            {error && <span>Ware do you think you're going? Wrong email or password!</span>}
+        </form>
+    </div>);
 }
 
 export default Login;
+

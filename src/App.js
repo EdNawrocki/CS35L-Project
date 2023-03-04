@@ -1,48 +1,23 @@
 import React from 'react'
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
-import Root from "./routes/Home";
-import NewItem from "./routes/NewItem"
-import ErrorPage from "./error-page";
-/*
-import ErrorPage from "./error-page";
-import Contact, { loader as contactLoader, } from "./routes/contact";
-import EditContact from "./routes/edit"; */
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import Home from "./routes/Home";
+import NewItem from "./routes/NewItem";
+import Login from "./routes/Login";
+//import ErrorPage from "./error-page";
+import {useState} from "react";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Root />,
-        errorElement: <ErrorPage />
-    },
-    {
-        path: "/routes/NewItem",
-        element: <NewItem />,
-        errorElement: <ErrorPage />,
-        /*loader: rootLoader,
-        action: rootAction,
-        children: [
-            {
-                path: "contacts/:contactId",
-                element: <Contact />,
-                loader: contactLoader,
-            },
-            {
-                path: "contacts/:contactId/edit",
-                element: <EditContact />,
-                loader: contactLoader,
-            },
-        ],*/
-    },
-]);
+
 
 export default function App() {
+    const [isAuth, setIsAuth] = useState(false);
     return (
-        <React.StrictMode>
-            <RouterProvider router={router} />
-        </React.StrictMode>
+        <Router>
+
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/NewItem" element={<NewItem />} />
+                <Route path="/Login" element={<Login />} />
+            </Routes>
+        </Router>
         )
 }
-

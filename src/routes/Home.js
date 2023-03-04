@@ -134,9 +134,9 @@ export default function Root() {
                 <Grid>
                     <div class="a"><h1>Add an item</h1></div>
                     <div class="abutton">
-                            <Link to="/routes/NewItem"><h1><i className="fa fa-plus-square fa-2x"></i></h1></Link>
+                            <Link to="/NewItem"><h1><i className="fa fa-plus-square fa-2x"></i></h1></Link>
                         <Routes>
-                            <Route path="/routes/NewItem" element={<NewItem />} />
+                            <Route path="/NewItem" element={<NewItem />} />
                             </Routes>
                     </div>
                     <div class="d"><h1>Display Statistics</h1></div>
