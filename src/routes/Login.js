@@ -1,7 +1,6 @@
 import React from "react";
 import {useState} from "react"
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import {auth} from "../../firebaseconfig"
+import { auth } from "../firebasesym";
 
 const Login = () => {
     const [error, setError] = useState(false);
