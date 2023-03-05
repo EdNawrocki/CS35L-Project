@@ -1,12 +1,13 @@
-import React, { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import 'font-awesome/css/font-awesome.min.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { AuthContextProvider } from "./context/AuthContext";
 
-import App from "./App";
-
-const root = createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <StrictMode>
-        <App />
-    </StrictMode>
+  <React.StrictMode>
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
+  </React.StrictMode>
 );
