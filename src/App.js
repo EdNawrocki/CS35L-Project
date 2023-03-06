@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Link, Navigate} from "react-rout
 import Home from "./pages/home"
 import Login from "./pages/login"
 import NewItem from "./pages/newitem"
+import ViewItem from "./pages/viewitem"
 import { AuthContext } from "./context/AuthContext"
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Link to="/">Home</Link>
         <Link to="/login">Login</Link>
         <Link to="/newitem">NewItem</Link>
+        <Link to="/viewitem">ViewItem</Link>
       </nav>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -34,6 +36,14 @@ function App() {
           element={
             <RequireAuth>
               <NewItem />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/viewitem"
+          element={
+            <RequireAuth>
+              <ViewItem />
             </RequireAuth>
           }
         />

@@ -5,7 +5,6 @@ import { AuthContext } from "../context/AuthContext"
 
 function NewItem() {
     const {currentUser} = useContext(AuthContext)
-    console.log(currentUser.email)
     
     const [name, setName] = useState("")
     const [quantity, setQuantity] = useState(0)
