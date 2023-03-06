@@ -1,3 +1,5 @@
+import "../styles.css"
+
 import { useContext, useState } from "react";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -31,11 +33,11 @@ function Login() {
 
   return (
     <div className="login">
-      <form onSubmit={handleLogin}>
-        <input type="email" placeholder="email" onChange={e=>setEmail(e.target.value)} />
-        <input type="password" placeholder="password" onChange={e=>setPassword(e.target.value)} />
-        <button type="submit">Login</button>
-        {error && <span>Wrong email or password!</span>}
+      <form className="login" onSubmit={handleLogin}>
+        <input className="login" type="email" placeholder="email" onChange={e=>setEmail(e.target.value)} />
+        <input className="login" type="password" placeholder="password" onChange={e=>setPassword(e.target.value)} />
+        <button className="login" type="submit">Login</button>
+        {error && <span className="login">Wrong email or password!</span>}
       </form>
     </div>
   );

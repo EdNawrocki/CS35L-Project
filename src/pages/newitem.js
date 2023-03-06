@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthContext"
 
 function NewItem() {
     const {currentUser} = useContext(AuthContext)
+    console.log(currentUser.email)
     
     const [name, setName] = useState("")
     const [quantity, setQuantity] = useState(0)
@@ -15,7 +16,7 @@ function NewItem() {
         await addDoc(collection(db, "items"), {
             name: name,
             quantity: quantity,
-            user: currentUser,
+            user: currentUser.email,
             timeStamp: serverTimestamp(),
         });
     }

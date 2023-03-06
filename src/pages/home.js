@@ -132,18 +132,18 @@ export default function Home() {
             </Toolbar>
             <Wrapper>
                 <Grid>
-                    <div class="a"><h1>Add an item</h1></div>
-                    <div class="abutton">
+                    <div className="a"><h1>Add an item</h1></div>
+                    <div className="abutton">
                         <Link to="/NewItem"><h1><i className="fa fa-plus-square fa-2x"></i></h1></Link>
                         <Routes>
                             <Route path="/NewItem" element={<NewItem />} />
                         </Routes>
                     </div>
-                    <div class="d"><h1>Display Statistics</h1></div>
-                    <div class="dbutton"><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></div>
-                    <div class="s"><h1>Selected: </h1></div>
-                    <div class="p"><h1>Price</h1></div>
-                    <div class="q"><h1>Quantity</h1></div>
+                    <div className="d"><h1>Display Statistics</h1></div>
+                    <div className="dbutton"><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></div>
+                    <div className="s"><h1>Selected: </h1></div>
+                    <div className="p"><h1>Price</h1></div>
+                    <div className="q"><h1>Quantity</h1></div>
 
                 </Grid>
             </Wrapper>
