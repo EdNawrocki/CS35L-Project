@@ -18,9 +18,16 @@ function ViewItem() {
 
     return(
         <div>
-            {itemList.map((item) => {
-                return <div>{item.name}</div>
-            })}
+            <table>
+                {itemList.map((item) => {
+                    return (
+                        <tr>
+                            <td>{item.name}</td>
+                            <td>{item.quantity}</td>
+                        </tr>
+                    );
+                })}
+            </table>
         </div>
     )
 }
