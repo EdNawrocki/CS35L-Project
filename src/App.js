@@ -4,6 +4,7 @@ import Home from "./pages/home"
 import Login from "./pages/login"
 import NewItem from "./pages/newitem"
 import ViewItem from "./pages/viewitem"
+import Logout from "./pages/logout"
 import { AuthContext } from "./context/AuthContext"
 
 function App() {
@@ -13,16 +14,29 @@ function App() {
     return currentUser ? (children) : <Navigate to="/login" />
   }
 
+  const RequireNotAuth = ({children}) => {
+    return currentUser ? <Navigate to="/logout" /> : (children)
+  }
+
   return (
     <Router>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
+        <Link to={currentUser ? "/logout" : "/login"}>{currentUser ? "Logout" : "Login"}</Link>
         <Link to="/newitem">NewItem</Link>
         <Link to="/viewitem">ViewItem</Link>
       </nav>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={
+          <RequireNotAuth>
+            <Login />
+          </RequireNotAuth>
+        } />
+        <Route path="/logout" element={
+          <RequireAuth>
+            <Logout />
+          </RequireAuth>
+        } />
         <Route
           path="/"
           element={
