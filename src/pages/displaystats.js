@@ -15,7 +15,7 @@ function ViewItem() {
         };
 
         getItems();
-    })
+    }, [])
 
     console.log(itemList);
 
