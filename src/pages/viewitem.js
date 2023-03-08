@@ -14,14 +14,14 @@ function ViewItem() {
         };
 
         getItems();
-    })
+    }, [])
 
     return(
         <div>
             <table>
                 {itemList.map((item) => {
                     return (
-                        <tr>
+                        <tr key={item.id}>
                             <td>{item.name}</td>
                             <td>{item.quantity}</td>
                         </tr>
