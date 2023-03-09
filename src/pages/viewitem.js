@@ -42,7 +42,7 @@ function ViewItem() {
 
     function handleClick(item) {
         const itemHistory = [];
-        itemList.map((a) => {
+        itemList.forEach((a) => {
             if (a.name === item.name) {
                 itemHistory.push(a);
             }

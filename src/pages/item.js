@@ -10,13 +10,13 @@ function Item() {
     const [error, setError] = useState(false);
 
     let total = 0;
-    location.state.itemHistory.map((item) => {
-        total += item.quantity;
+    location.state.itemHistory.forEach((item) => {
+        total += Number(item.quantity);
         return total;
     })
 
     const handleDelete = () => {
-        location.state.itemHistory.map((item) => {
+        location.state.itemHistory.forEach((item) => {
             const docRef = doc(db, "items", item.id);
             deleteDoc(docRef)
               .then(() => {
