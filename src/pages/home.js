@@ -17,6 +17,7 @@ background-color: #F0EAD6;
 i {
     display: flex;
     justify-content: center;
+    text-decoration: none;
 }
 `;
 
@@ -140,18 +141,11 @@ export default function Home() {
                 <Grid>
                     <div className="a"><h1>Add an item</h1></div>
                     <div className="abutton">
-                        <Link to="/NewItem"><h1><i className="fa fa-plus-square fa-2x"></i></h1></Link>
-                        <Routes>
-                            <Route path="/NewItem" element={<NewItem />} />
-                        </Routes>
+                        <Link to="/NewItem" style={{ textDecoration: 'none' }}><h1><i className="fa fa-plus-square fa-2x"></i></h1></Link>
                     </div>
                     <div className="d"><h1>Display Statistics</h1></div>
                     <div className="dbutton">
-                        <Link to="/displaystats"><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></Link>
-                        <Routes>
-                            <Route path="/displaystats" element={<DisplayStats />} />
-                        </Routes>
-                        
+                        <Link to="/displaystats" style={{ textDecoration: 'none' }}><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></Link>                     
                     </div>
                     <div className="s"><h1>Selected: </h1></div>
                     <div className="p"><h1>Price</h1></div>
@@ -159,6 +153,10 @@ export default function Home() {
 
                 </Grid>
             </Wrapper>
+            <Routes>
+                <Route path="/NewItem" element={<NewItem />} />
+                <Route path="/displaystats" element={<DisplayStats />} />
+            </Routes>
         </React.Fragment>
     );
 }

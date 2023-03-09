@@ -64,8 +64,8 @@ function App() {
           < Container >
               <h1><i className="fa fa-database fa-3x"></i> Bruin Industrial Storage Solutions</h1></Container>
           <Toolbar>
-              <div id="Home"><Link to="/"><h1>Home</h1></Link></div>
-              <div id="Login"><Link to="/login"><h1>Login</h1></Link></div>
+              <div id="Home"><Link to="/" style={{ textDecoration: 'none' }}><h1>Home</h1></Link></div>
+              <div id="Login"><Link to="/login" style={{ textDecoration: 'none' }}><h1>Login</h1></Link></div>
               <div id="About"><h1>About</h1></div>
 
           </Toolbar>
