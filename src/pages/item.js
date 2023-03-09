@@ -2,6 +2,11 @@ import { useLocation } from "react-router-dom"
 
 function Item() {
     const location = useLocation();
+
+    let total = 0;
+    location.state.itemHistory.map((item) => {
+        total += item.quantity;
+    })
     
     return(
         <div>
@@ -11,6 +16,7 @@ function Item() {
                     <li>{item.name}    {item.quantity}</li>
                 );
             })}
+            <p>{total}</p>
         </div>
     );
 }
