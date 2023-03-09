@@ -5,6 +5,7 @@ import Login from "./pages/login"
 import NewItem from "./pages/newitem"
 import ViewItem from "./pages/viewitem"
 import Logout from "./pages/logout"
+import Item from "./pages/item"
 import { AuthContext } from "./context/AuthContext"
 
 function App() {
@@ -58,6 +59,14 @@ function App() {
           element={
             <RequireAuth>
               <ViewItem />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/item"
+          element={
+            <RequireAuth>
+              <Item />
             </RequireAuth>
           }
         />
