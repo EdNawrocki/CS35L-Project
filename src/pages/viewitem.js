@@ -6,8 +6,6 @@ import { Link, useNavigate, Routes, Route } from "react-router-dom";
 import Item from "./item"
 
 function ViewItem() {
-    const PULL_FROM_DB = true;            // set true for data base pulling, DELETE FOR FINAL PRODUCT
-
     const navigate = useNavigate();
 
     const itemsRef = collection(db, "items");
@@ -17,7 +15,6 @@ function ViewItem() {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-                                        if (!PULL_FROM_DB) { return; }  // DELETE FOR FINAL PRODUCT
         const getItems = async () => {
             const data = await getDocs(itemsRef);
             setItemList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -25,20 +22,6 @@ function ViewItem() {
 
         getItems();
     }, [])
-
-
-    if (! PULL_FROM_DB && itemList.length === 0) {      // DELETE WHOLE IF STATEMENT FOR FINAL PRODUCT
-        const fixedList = [];
-        for (let i = 0; i != 50; i++) {
-            let x = Math.random() > .5 ? -1 : 1;
-            fixedList.push({ name: "test" + i.toString(), quantity: x*Math.floor(Math.random() * 10000), id: i })
-        }
-        for (let i = 0; i != 10; i++) {
-            let x = Math.random() > .5 ? -1 : 1;
-            fixedList.push({ name: "test0", quantity: x*Math.floor(Math.random() * 10000), id: 50+i});
-        }
-        setItemList(fixedList);
-    }
 
     function handleClick(item) {
         const itemHistory = [];
