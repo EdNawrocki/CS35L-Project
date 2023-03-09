@@ -14,7 +14,7 @@ function ViewItem() {
         };
 
         getItems();
-    })
+    }, [])
 
     return(
         <div>
