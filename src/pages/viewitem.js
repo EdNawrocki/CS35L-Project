@@ -6,7 +6,7 @@ import { Link, useNavigate, Routes, Route } from "react-router-dom";
 import Item from "./item"
 
 function ViewItem() {
-    const PULL_FROM_DB = false;            // set true for data base pulling, DELETE FOR FINAL PRODUCT
+    const PULL_FROM_DB = true;            // set true for data base pulling, DELETE FOR FINAL PRODUCT
 
     const navigate = useNavigate();
 
