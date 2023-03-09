@@ -4,19 +4,19 @@ import { db } from "../firebase"
 import { AuthContext } from "../context/AuthContext"
 
 function NewItem() {
-    const {currentUser} = useContext(AuthContext)
+    const {currentUser} = useContext(AuthContext)       // get current user from context
     
-    const [name, setName] = useState("")
-    const [quantity, setQuantity] = useState(0)
+    const [name, setName] = useState("")                // state for item name input
+    const [quantity, setQuantity] = useState(0)         // state for item quantity input
 
-    const handleAdd = async(e) =>{
-        e.preventDefault()
+    const handleAdd = async(e) =>{              // upon clicking 'Add Item'...
+        e.preventDefault()                          // make sure something was inputted
 
-        await addDoc(collection(db, "items"), {
-            name: name,
-            quantity: quantity,
-            user: currentUser.email,
-            timeStamp: serverTimestamp(),
+        await addDoc(collection(db, "items"), {     // add that item to the DB with properties: 
+            name: name,                                 // name of item
+            quantity: quantity,                         // quantity of item
+            user: currentUser.email,                    // user email of item adder
+            timeStamp: serverTimestamp(),               // time added
         });
     }
 
