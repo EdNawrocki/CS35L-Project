@@ -44,6 +44,7 @@ function ViewItem() {
         const itemHistory = [];
         itemList.forEach((a) => {
             if (a.name === item.name) {
+                console.log("Tracking ", a.id)
                 itemHistory.push(a);
             }
         })
@@ -60,6 +61,7 @@ function ViewItem() {
         const itemHistory = [];
         itemList.map((a) => {
             if (a.name === search) {
+                console.log("Tracking ", a.id)
                 itemHistory.push(a);
             }
         })

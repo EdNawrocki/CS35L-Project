@@ -27,6 +27,7 @@ function Item() {
               })
         });
         if (! error) {
+            
             navigate("/viewitem");
         }
     }
@@ -36,7 +37,7 @@ function Item() {
             <h1>{location.state.item.name}'s History:</h1>
             {location.state.itemHistory.map((item) => {
                 return (
-                    <li key="item.id">{item.name}    {item.quantity}</li>
+                    <li key={item.id}>{item.name}    {item.quantity}</li>
                 );
             })}
             <p>{total}</p>
