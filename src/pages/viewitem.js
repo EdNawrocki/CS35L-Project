@@ -28,13 +28,24 @@ function ViewItem() {
     if (! PULL_FROM_DB && itemList.length === 0) {      // DELETE WHOLE IF STATEMENT FOR FINAL PRODUCT
         const fixedList = [];
         for (let i = 0; i != 50; i++) {
-            fixedList.push({ name: "test" + i.toString(), quantity: Math.floor(Math.random() * 10000), id: i })
+            let x = Math.random() > .5 ? -1 : 1;
+            fixedList.push({ name: "test" + i.toString(), quantity: x*Math.floor(Math.random() * 10000), id: i })
+        }
+        for (let i = 0; i != 10; i++) {
+            let x = Math.random() > .5 ? -1 : 1;
+            fixedList.push({ name: "test0", quantity: x*Math.floor(Math.random() * 10000), id: 50});
         }
         setItemList(fixedList);
     }
 
     function handleClick(item) {
-        navigate("/item",{state:{item: item}});
+        const itemHistory = [];
+        itemList.map((a) => {
+            if (a.name === item.name) {
+                itemHistory.push(a);
+            }
+        })
+        navigate("/item",{state:{itemHistory: itemHistory, item: item}});
             <Route path="/item">
                 <Item />
             </Route>
@@ -45,9 +56,7 @@ function ViewItem() {
         <div>
             <table>
                 {itemList.map((item) => {
-                    console.log(item);
                     return (
-
                         <div key={item.id}>
                             <tr>
                                 <td>{item.name}</td>
