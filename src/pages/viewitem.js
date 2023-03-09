@@ -41,18 +41,34 @@ function ViewItem() {
         e.preventDefault();
         setError(false);
 
+        let itemSearch = true;
         const itemHistory = [];
+        const userHistory = [];
         itemList.map((a) => {
             if (a.name === search) {
                 console.log("Tracking ", a.id)
                 itemHistory.push(a);
             }
+            else if (a.user === search) {
+                console.log("Tracking ", a.user)
+                userHistory.push(a);
+            }
         })
         if (itemHistory.length === 0) {
-            setError(true);
-            return;
+            itemSearch = false;
+            if (userHistory.length === 0) {
+                setError(true);
+                return;
+            }
         }
-        navigate("/item",{state:{itemHistory: itemHistory, item: itemHistory[0]}});
+        let history;
+        if (itemSearch) {
+            history = itemHistory;
+        }
+        else {
+            history = userHistory;
+        }
+        navigate("/item",{state:{itemHistory: history, item: history[0], isItemSearch: itemSearch}});
         <Route path="/item">
             <Item />
         </Route>
@@ -61,7 +77,7 @@ function ViewItem() {
     return(
         <div>
             <form onSubmit={handleSearch} >
-                <input type="text" placeholder="Item Name" onChange={e=>setSearch(e.target.value)} />
+                <input type="text" placeholder="Item/User Name" onChange={e=>setSearch(e.target.value)} />
                 <button type="submit">Search</button>
                 {error && <span>Item not found!</span>}
             </form>
@@ -70,7 +86,8 @@ function ViewItem() {
                     return (
                         <div key={item.id}>
                             <button onClick={ () => {handleClick(item)} }>{item.name}</button>
-                            <span>{item.quantity}</span>
+                            <span>  {item.quantity}</span>
+                            <span>  {item.user}</span>
                         </div>
                     );
                 })}

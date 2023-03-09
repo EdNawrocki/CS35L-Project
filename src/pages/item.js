@@ -27,21 +27,28 @@ function Item() {
               })
         });
         if (! error) {
-            
+
             navigate("/viewitem");
         }
     }
     
+    let title;
+    if (location.state.isItemSearch) {
+        title = location.state.item.name;
+    } else {
+        title = location.state.item.user;
+    }
+
     return(
         <div>
-            <h1>{location.state.item.name}'s History:</h1>
+            <h1>{title}'s History:</h1>
             {location.state.itemHistory.map((item) => {
                 return (
                     <li key={item.id}>{item.name}    {item.quantity}</li>
                 );
             })}
             <p>{total}</p>
-            <button onClick={handleDelete}>Stop Tracking Item {location.state.item.name}</button>
+            {location.state.isItemSearch && <button onClick={handleDelete}>Stop Tracking Item {location.state.item.name}</button>}
             {error && <span>ERROR DELETING</span>}
         </div>
     );
