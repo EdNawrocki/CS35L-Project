@@ -8,6 +8,7 @@ import {
     Link,
 } from "react-router-dom";
 import NewItem from './newitem'
+import DisplayStats from './displaystats'
 
 
 const Wrapper = styled.div`
@@ -145,7 +146,13 @@ export default function Home() {
                         </Routes>
                     </div>
                     <div className="d"><h1>Display Statistics</h1></div>
-                    <div className="dbutton"><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></div>
+                    <div className="dbutton">
+                        <Link to="/displaystats"><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></Link>
+                        <Routes>
+                            <Route path="/displaystats" element={<DisplayStats />} />
+                        </Routes>
+                        
+                    </div>
                     <div className="s"><h1>Selected: </h1></div>
                     <div className="p"><h1>Price</h1></div>
                     <div className="q"><h1>Quantity</h1></div>
