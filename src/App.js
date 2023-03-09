@@ -4,7 +4,8 @@ import Home from "./pages/home"
 import Login from "./pages/login"
 import NewItem from "./pages/newitem"
 import ViewItem from "./pages/viewitem"
-import DisplayStats from "./pages/displaystats"
+import Logout from "./pages/logout"
+import Item from "./pages/item"
 import { AuthContext } from "./context/AuthContext"
 import styled from 'styled-components';
 
@@ -56,9 +57,16 @@ function App() {
     return currentUser ? (children) : <Navigate to="/login" />
   }
 
+  const RequireNotAuth = ({children}) => {
+    return currentUser ? <Navigate to="/logout" /> : (children)
+  }
+
   return (
     <Router>
-          <nav>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to={currentUser ? "/logout" : "/login"}>{currentUser ? "Logout" : "Login"}</Link>
+        <Link to="/newitem">NewItem</Link>
         <Link to="/viewitem">ViewItem</Link>
           </nav>
           < Container >
@@ -70,7 +78,16 @@ function App() {
 
           </Toolbar>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={
+          <RequireNotAuth>
+            <Login />
+          </RequireNotAuth>
+        } />
+        <Route path="/logout" element={
+          <RequireAuth>
+            <Logout />
+          </RequireAuth>
+        } />
         <Route
           path="/"
           element={
@@ -95,11 +112,11 @@ function App() {
                 </RequireAuth>
             }
           />
-      <Route
-          path="/displaystats"
+        <Route
+          path="/item"
           element={
             <RequireAuth>
-              <DisplayStats />
+              <Item />
             </RequireAuth>
           }
         />

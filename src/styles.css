@@ -35,3 +35,24 @@ span.login{
     font-weight: bolder;
     font-style: italic;
 }
+
+
+/* LOGOUT STYLES */
+
+.logout{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.logout{
+    width: 200px;
+    height: 30px;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    align-items: center;
+}
