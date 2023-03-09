@@ -4,6 +4,7 @@ import Home from "./pages/home"
 import Login from "./pages/login"
 import NewItem from "./pages/newitem"
 import ViewItem from "./pages/viewitem"
+import DisplayStats from "./pages/displaystats"
 import { AuthContext } from "./context/AuthContext"
 import styled from 'styled-components';
 
@@ -86,11 +87,19 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route
-          path="/viewitem"
+       <Route
+            path="/viewitem"
+            element={
+                <RequireAuth>
+                    <ViewItem />
+                </RequireAuth>
+            }
+          />
+      <Route
+          path="/displaystats"
           element={
             <RequireAuth>
-              <ViewItem />
+              <DisplayStats />
             </RequireAuth>
           }
         />
