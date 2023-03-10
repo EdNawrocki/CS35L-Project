@@ -12,7 +12,7 @@ function Item() {
     //      item.quantity   -- item's quantity
     //      item.user       -- email of user who added item
     //      item.timeStamp  -- time at which item was added
-    
+
     // NOTE: I'm not sure how item.timeStamp property is implemented; 
     //       odds are it's a JS object defined by Firebase; 
     //       a call like console.log(location.state.item.timeStamp) might help if you need information
@@ -61,7 +61,7 @@ function Item() {
                     <li key={item.id}>{item.name}    {item.quantity}</li>
                 );
             })}
-            <p>{total}</p>
+            <p>{location.state.isItemSearch && total}</p>
             {location.state.isItemSearch && <button onClick={handleDelete}>Stop Tracking Item {location.state.item.name}</button>}
             {error && <span>ERROR DELETING</span>}
         </div>

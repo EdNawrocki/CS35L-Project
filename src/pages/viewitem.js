@@ -31,7 +31,7 @@ function ViewItem() {
                 itemHistory.push(a);
             }
         })
-        navigate("/item",{state:{itemHistory: itemHistory, item: item}});   // navigate user to item passing it 'itemHistory' and item clicked
+        navigate("/item",{state:{itemHistory: itemHistory, item: item, isItemSearch: true}});   // navigate user to item passing it 'itemHistory' and item clicked
         <Route path="/item">
             <Item />
         </Route>
