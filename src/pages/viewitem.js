@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link, useNavigate, Routes, Route } from "react-router-dom";
 
@@ -8,7 +8,9 @@ import Item from "./item"
 function ViewItem() {
     const navigate = useNavigate();             // func for redirecting user
 
-    const itemsRef = collection(db, "items");   // set 'itemsRef' to collection of documents in 'items'
+    //const itemsRef = collection(db, "items");
+    const q = collection(db, "items");   // set 'itemsRef' to collection of documents in 'items'
+    const itemsRef = query(q, orderBy("timeStamp", "asc"));    //sort 'itemRef' by timestamp
 
     const [itemList, setItemList] = useState([]);   // state for list of items
     const [search, setSearch] = useState("");       // state for search phrase
