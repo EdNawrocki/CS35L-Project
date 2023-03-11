@@ -1,6 +1,7 @@
 /* LOGIN STYLES */
 
 .login{
+    font-family: Georgia, serif;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -8,38 +9,54 @@
 }
 
 form.login{
+    height: 35vh;
+    width: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #094CF8C2;
 }
 
 input.login{
-    width: 200px;
+    width: 225px;
     height: 30px;
-    margin: 5px;
+    margin: 2px;
+    font-weight: 500;
 }
 
 button.login{
-    width: 200px;
-    height: 30px;
+    width: 150px;
+    height: 40px;
+    margin: 15px;
     border: none;
-    background-color: blueviolet;
+    background-color: #f7b308;
     color: white;
     font-weight: bold;
     cursor: pointer;
     align-items:center;
 }
 
+button.login:hover{
+    background-color: #f7db08;
+}
+
 span.login{
+    height: 2vh;
+    width: 36vh;
+    display: flex;
     color: red;
+    font-size: large;
     font-weight: bolder;
     font-style: italic;
+    justify-content: center;
+    border: solid;
 }
 
 
 /* LOGOUT STYLES */
 
 .logout{
+    font-family: Georgia, serif;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -48,11 +65,155 @@ span.login{
 
 button.logout{
     width: 200px;
-    height: 30px;
+    height: 40px;
     border: none;
-    background-color: blueviolet;
+    background-color: #f7b308;
     color: white;
     font-weight: bold;
     cursor: pointer;
     align-items: center;
+}
+
+button.logout:hover{
+    background-color: #f7db08;
+}
+
+/* NEW ITEM STYLES */
+
+.newItem{
+    font-family: Georgia, serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form.newItem{
+    height: 13vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #094CF8C2;
+}
+
+input.newItem{
+    width: 30%;
+    height: 30px;
+    margin: 2px;
+    border: none;
+}
+
+input.newItem{
+    width: 30%px;
+    height: 30px;
+    margin: 2px;
+    border: none;
+}
+
+button.newItem{
+    width: 30%;
+    height: 32px;
+    margin: 15px;
+    border: none;
+    background-color: #f7b308;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    align-items: center;
+}
+
+button.newItem:hover{
+    background-color: #f7db08;
+}
+
+/* VIEW ITEM STYLES */
+.viewItem{
+    font-family: Georgia, serif;
+}
+
+form.search{
+    font-family: Georgia, serif;
+    height: 13vh;
+    width: 100%;
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    background-color: #094CF8C2;
+}
+
+input.search{
+    font-family: Georgia, serif;
+    width: 30%;
+    height: 4vh;
+    margin-left: 20%;
+    margin-right: 10px;
+}
+
+button.search{
+    font-family: Georgia, serif;
+    width: 25%;
+    height: 4.5vh;
+    margin-top: 2%;
+    margin-right: 20%;
+    font-weight: 500;
+    align-content:center;
+    color: white;
+    background-color: #f7b308;
+    border: none;
+}
+
+button.search:hover{
+    background-color: #f7db08;
+}
+
+span.search{
+    display:block;
+    color: red;
+    font-weight: bolder;
+    font-style: italic;
+    width: 50vh;
+    margin: auto;
+    margin-top: 1vh;
+    text-align: center;
+}
+
+table.items{
+    font-family: Georgia, serif;
+    margin: auto;
+    margin-top: 5px;
+    width: 100%;
+    align-items: center;
+    background-color: #094CF8C2;
+}
+
+th.items{
+    color: white;
+    text-align: center;
+}
+td.items{
+    align-content: center;
+    color: white;
+    border-bottom: dotted;
+    border-color: #094CF8C2;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+button.items{
+    font-family: Georgia, serif;
+    font-weight: bolder;
+    height: 5vh;
+    width: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: #f7b308;
+    border: none;
+    
+}
+
+button.items:hover{
+    background-color: #f7db08;
 }

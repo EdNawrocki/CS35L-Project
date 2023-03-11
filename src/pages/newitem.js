@@ -21,11 +21,11 @@ function NewItem() {
     }
 
     return(
-        <div>
-            <form onSubmit={handleAdd}>
-                <input type="name" placeholder="Item Name" onChange={e=>setName(e.target.value)} />
-                <input type="quantity" placeholder="Quantity" onChange={e=>setQuantity(e.target.value)} />
-                <button type="submit">Submit</button>
+        <div className="newItem">
+            <form className="newItem" onSubmit={handleAdd}>
+                <input className="newItem" type="name" placeholder="Item Name" onChange={e=>setName(e.target.value)} />
+                <input className="newItem" type="quantity" placeholder="Quantity" onChange={e=>setQuantity(e.target.value)} />
+                <button className="newItem" type="submit">Submit</button>
             </form>
         </div>
     )

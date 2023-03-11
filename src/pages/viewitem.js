@@ -78,20 +78,26 @@ function ViewItem() {
     }
 
     return(
-        <div>
-            <form onSubmit={handleSearch} >
-                <input type="text" placeholder="Item/User Name" onChange={e=>setSearch(e.target.value)} />
-                <button type="submit">Search</button>
-                {error && <span>Item/User not found!</span>}
+        <div className="viewItem">
+            <form className="search" onSubmit={handleSearch} >
+                <input className="search" type="text" placeholder="Item/User Name" onChange={e=>setSearch(e.target.value)} />
+                <button className="search" type="submit">Search</button>
+                {error && <span className="search">Item/User not found!</span>}
             </form>
-            <table>
+            <table className="items">
+                <tr>
+                    <th className = "items">Item</th>
+                    <th className = "items">Changelog</th>
+                    <th className = "items">User</th>
+                </tr>
                 {itemList.map((item) => {
                     return (
-                        <div key={item.id}>
-                            <button onClick={ () => {handleClick(item)} }>{item.name}</button>
-                            <span>  {item.quantity}</span>
-                            <span>  {item.user}</span>
-                        </div>
+                        <tr>
+                        <td className="items" key={item.id}>
+                            <button className="items" onClick={ () => {handleClick(item)} }>{item.name}</button></td>
+                            <td className="items">  {item.quantity}</td>
+                            <td className="items">  {item.user}</td>
+                        </tr>
                     );
                 })}
             </table>
