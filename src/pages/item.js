@@ -71,7 +71,7 @@ function Item() {
         title = location.state.item.user;
     }
 
-    
+    //var temp = title;    
     return(
         <>
             <h1>{title}'s History:</h1>
@@ -80,6 +80,8 @@ function Item() {
                     <li key={item.id}>{item.name}    {item.quantity}</li>
                 );
             })}
+            <br></br>
+            <b>Current Stock:</b>
             <p>{location.state.isItemSearch && total}</p>
             {location.state.isItemSearch && <button onClick={handleDelete}>Stop Tracking Item {location.state.item.name}</button>}
             {error && <span>ERROR DELETING</span>}
@@ -91,7 +93,13 @@ function Item() {
                 type: 'scatter',
                 }]
             }
-            layout={ {width: 320, height: 240, title: "Graph"}}/>
+            layout={ {width: 600, height: 400, 
+                title: "Inventory Count of " + title + " over time" ,
+                yaxis: {title: {
+                text: "Quantity"
+                    }
+                }   
+            }}/>
             
         </>
         
