@@ -121,15 +121,6 @@ background-color: #094CF8C2;
 export default function Home() {
     return (
         <React.Fragment>
-
-            <Container>
-
-                <h1><i className="fa fa-database fa-3x"></i> Bruin Industrial Storage Solutions</h1></Container>
-            <Toolbar>
-                <div id="Home"><h1>Home</h1></div>
-                <div id="About"><h1>About</h1></div>
-
-            </Toolbar>
             <Wrapper>
                 <Grid>
                     <div className="a"><h1>Add an item</h1></div>
