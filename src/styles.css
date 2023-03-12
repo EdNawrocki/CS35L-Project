@@ -229,3 +229,30 @@ button.items{
 button.items:hover{
     background-color: #f7db08;
 }
+
+.itempage_h{
+    font-family: Georgia, serif;
+    text-align:center;
+    background-color: #094CF8C2;
+    color: white;
+}
+
+.col{
+    font-family: Georgia, serif;
+    color: white;
+    text-align: center;
+    
+}
+
+.third{
+    width:33.33%;
+}
+
+.two_thrid{
+    width:66.66%;
+    
+}
+
+.row{
+    width:100%;
+}

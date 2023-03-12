@@ -71,18 +71,33 @@ function Item() {
 
     return(
         <>
-            <h1>{title}'s History:</h1>
+            <h1 className="itempage_h">{title}'s History: </h1>
+            <table className="items">
+                 <tr>
+                     <th className = "col third">Item</th>
+                     <th className = "col two_third">Changelog</th>
+                     <th className = "col row">User</th>
+                 </tr>
+            </table>
             {location.state.itemHistory.map((item) => {         // return a list of item names and quantities
                 return (
-                    <li key={item.id}>{item.name}    {item.quantity}    {location.state.isItemSearch && item.user}</li>
+                    <table className="items" key={item.id}>
+                        <tr>
+                        <td className="col third">{item.name}</td>    
+                        <td className="col two_third">{item.quantity}  </td>  
+                        <td className="col row">{location.state.isItemSearch && item.user}</td>
+                        </tr></table>
                 );
             })}
             <br></br>
-            {location.state.isItemSearch &&<b>Current Stock:</b>}
-            <p>{location.state.isItemSearch && total}</p>
+            <table className="itempage_h">
+            {location.state.isItemSearch &&<b>Current Stock: </b>}
+            
+            {location.state.isItemSearch && total}
+            </table>
             {location.state.isItemSearch && <button onClick={handleDelete}>Stop Tracking Item {location.state.item.name}</button>}
             {error && <span>ERROR DELETING</span>}
-            {location.state.isItemSearch && <Plot   //plot data if search by item, else(search by user) don't show plot
+            {location.state.isItemSearch && <Plot    //plot data if search by item, else(search by user) don't show plot
             data= {[
                 {
                 x: xAxis,
@@ -90,7 +105,7 @@ function Item() {
                 type: 'scatter',
                 }]
             }
-            layout={ {width: 600, height: 400, 
+            layout={ {width: 700, height: 450, 
                 title: "Inventory Count of " + title + " over time" ,
                 yaxis: {title: {
                 text: "Total Quantity"
