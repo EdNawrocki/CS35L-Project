@@ -76,7 +76,7 @@ function Item() {
                  <tr>
                      <th className = "col third">Item</th>
                      <th className = "col two_third">Changelog</th>
-                     <th className = "col row">User</th>
+                     <th className = "col row">{location.state.isItemSearchUser && "User"}</th>
                  </tr>
             </table>
             {location.state.itemHistory.map((item) => {         // return a list of item names and quantities
