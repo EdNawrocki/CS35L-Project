@@ -96,9 +96,13 @@ function Item() {
             layout={ {width: 600, height: 400, 
                 title: "Inventory Count of " + title + " over time" ,
                 yaxis: {title: {
-                text: "Quantity"
+                text: "Total Quantity"
                     }
-                }   
+                },
+                xaxis: {title: {
+                    text: "Time"
+                        }
+                    }     
             }}/>}
             
         </>
