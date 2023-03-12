@@ -4,8 +4,21 @@
     font-family: Georgia, serif;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+h1.login{
+    border:solid;
+    font-size: medium;
+    height: 10vh;
+    width: 40vh;
+    margin-top: 0;
+    margin-bottom: 2px;
+    color: white;
+    background-color:  #094CF8C2; 
+
 }
 
 form.login{

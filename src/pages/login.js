@@ -7,6 +7,7 @@ import {auth} from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 import {AuthContext} from "../context/AuthContext"
+import 'font-awesome/css/font-awesome.min.css';
 
 function Login() {
   const [error, setError] = useState(false)     // error logging in?
@@ -33,6 +34,7 @@ function Login() {
 
   return (
     <div className="login">
+      <h1 className="login"><i className="fa fa-database fa-2x"></i> Bruin Industrial Storage Solutions</h1>
       <form className="login" onSubmit={handleLogin}>
         <input className="login" type="email" placeholder="email" onChange={e=>setEmail(e.target.value)} />
         <input className="login" type="password" placeholder="password" onChange={e=>setPassword(e.target.value)} />
