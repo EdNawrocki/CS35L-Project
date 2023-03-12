@@ -8,7 +8,7 @@ import {
     Link,
 } from "react-router-dom";
 import NewItem from './newitem'
-
+import ViewItem from "./viewitem"
 
 const Wrapper = styled.div`
 background-color: #F0EAD6;
@@ -93,30 +93,28 @@ background-color: #094CF8C2;
 background-color: #F8B509;
     }
 
+    .abutton:hover{
+        background-color: #f7db08;
+    }
+
     .d {
       grid-area: d;
         background-color: #094CF8C2;
     }
+
     .dbutton {
       grid-area: dbutton;
         background-color: #F8B509;
     }
 
-    .s {
-      grid-area: s;
-background-color: #094CF8C2;
+    .dbutton:hover{
+        background-color: #f7db08;
     }
 
-    .p {
-      grid-area: p;
-background-color: #094CF8C2;
+    a{
+        text-decoration: none;
     }
-
-    .q {
-      grid-area: q;
-background-color: #094CF8C2;
-    }
-`;
+`; // Last section (a{}) removes purple underline from View Items icon
 
 export default function Home() {
     return (
@@ -128,7 +126,6 @@ export default function Home() {
             <Toolbar>
                 <div id="Home"><h1>Home</h1></div>
                 <div id="About"><h1>About</h1></div>
-
             </Toolbar>
             <Wrapper>
                 <Grid>
@@ -139,12 +136,13 @@ export default function Home() {
                             <Route path="/NewItem" element={<NewItem />} />
                         </Routes>
                     </div>
-                    <div className="d"><h1>Display Statistics</h1></div>
-                    <div className="dbutton"><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></div>
-                    <div className="s"><h1>Selected: </h1></div>
-                    <div className="p"><h1>Price</h1></div>
-                    <div className="q"><h1>Quantity</h1></div>
-
+                    <div className="d"><h1>View Items</h1></div>
+                    <div className="dbutton">
+                        <Link to="/ViewItem"><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></Link>
+                        <Routes>
+                            <Route path="/ViewItem" element={<ViewItem />} />
+                        </Routes>
+                    </div>
                 </Grid>
             </Wrapper>
         </React.Fragment>
