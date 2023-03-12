@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { getFirestore, doc, deleteDoc } from "firebase/firestore"
 import { useState ,React } from "react"
-import Chart from 'chart.js/auto'
 import Plot from 'react-plotly.js'
 
 function Item() {
@@ -29,23 +28,22 @@ function Item() {
 
     const quantityList = [];
     let total = 0;                                      // tally the total quantity
-    let count =0;
+    let count =0;                                       //tally number of index
     location.state.itemHistory.forEach((item) => {
         total += Number(item.quantity);
         quantityList.push(total);
         count += 1;
     })
 
-    function makeArr(arrSize){
+    function makeArr(arrSize){      //helper function to generate list for xaxis values
         var arr = [];
-        //var step = (stopVal - startVal) / (index -1);
         for (var i = 0; i < arrSize; i++){
             arr.push(i);
         }
         return arr;
     }
 
-    const xAxis = makeArr(count);
+    const xAxis = makeArr(count);   //create xaxis list
     
 
     const handleDelete = () => {                            // on clicking 'stop tracking': 
@@ -71,7 +69,6 @@ function Item() {
         title = location.state.item.user;
     }
 
-    //var temp = title;    
     return(
         <>
             <h1>{title}'s History:</h1>
@@ -85,7 +82,7 @@ function Item() {
             <p>{location.state.isItemSearch && total}</p>
             {location.state.isItemSearch && <button onClick={handleDelete}>Stop Tracking Item {location.state.item.name}</button>}
             {error && <span>ERROR DELETING</span>}
-            {location.state.isItemSearch && <Plot
+            {location.state.isItemSearch && <Plot   //plot data if search by item, else(search by user) don't show plot
             data= {[
                 {
                 x: xAxis,
@@ -109,10 +106,5 @@ function Item() {
         
     );
 }
-
-
-
-
-
 
 export default Item;
