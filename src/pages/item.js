@@ -81,11 +81,11 @@ function Item() {
                 );
             })}
             <br></br>
-            <b>Current Stock:</b>
+            {location.state.isItemSearch &&<b>Current Stock:</b>}
             <p>{location.state.isItemSearch && total}</p>
             {location.state.isItemSearch && <button onClick={handleDelete}>Stop Tracking Item {location.state.item.name}</button>}
             {error && <span>ERROR DELETING</span>}
-            <Plot
+            {location.state.isItemSearch && <Plot
             data= {[
                 {
                 x: xAxis,
@@ -99,7 +99,7 @@ function Item() {
                 text: "Quantity"
                     }
                 }   
-            }}/>
+            }}/>}
             
         </>
         
