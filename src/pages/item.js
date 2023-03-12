@@ -77,7 +77,7 @@ function Item() {
             <h1>{title}'s History:</h1>
             {location.state.itemHistory.map((item) => {         // return a list of item names and quantities
                 return (
-                    <li key={item.id}>{item.name}    {item.quantity}    {item.user}</li>
+                    <li key={item.id}>{item.name}    {item.quantity}    {location.state.isItemSearch && item.user}</li>
                 );
             })}
             <br></br>
