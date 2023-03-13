@@ -9,19 +9,26 @@ import Item from "./pages/item"
 import { AuthContext } from "./context/AuthContext"
 import styled from 'styled-components';
 import 'font-awesome/css/font-awesome.min.css';
+import PropTypes from 'prop-types';
+import React from 'react';
+import About from './pages/about';
 
 const Container = styled.div`
-position: static;
+margin-top: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
 width: 1fr;
 height: 18vh;
-left: 0px;
-top: 0px;
 background-color: #094CF8C2;
 
 h1 {
     font-size: 30px;
-    text-align: center;
     color: #FFFFFF;
+}
+
+i {
+margin-right: 10px;
 }
 
 `;
@@ -35,7 +42,7 @@ left: 0px;
 top: 123px;
 background-color: #094CF8C2;
 display: grid;
-grid-template-columns: repeat(2, 50vw);
+grid-template-columns: repeat(3, 32vw);
 
 
 #Home {
@@ -43,10 +50,15 @@ text-decoration: none;
 }
 
 #About {
+
+}
+
+#Logout {
 text-decoration: none;
 }
 
 h1 {
+    position: relative;
     font-size: 20px;
     text-align: center;
     color: #FFFFFF;
@@ -55,6 +67,22 @@ h1 {
 Link {
     text-decoration: none;
 }
+
+margin-bottom: 10px;
+`
+const Title = styled.div`
+margin-top: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+i {
+ margin-right: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
 `
 
 
@@ -64,29 +92,35 @@ function App() {
 
   const RequireAuth = ({children}) => {
     return currentUser ? (children) : <Navigate to="/login" />
-  }
+    }
+    RequireAuth.propTypes = {
+        children: PropTypes.node.isRequired,
+    };
 
   const RequireNotAuth = ({children}) => {
     return currentUser ? <Navigate to="/logout" /> : (children)
-  }
+    }
+
+    RequireNotAuth.propTypes = {
+        children: PropTypes.node.isRequired,
+    };
 
   return (
     <Router>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to={currentUser ? "/logout" : "/login"}>{currentUser ? "Logout" : "Login"}</Link>
-        <Link to="/newitem">NewItem</Link>
-        <Link to="/viewitem">ViewItem</Link>
-          </nav>
     <Container>
-
-        <h1><i className="fa fa-database fa-3x"></i> Bruin Industrial Storage Solutions</h1></Container>
+        <h1>
+                  <Title><i className="fa fa-database fa-3x"></i>Bruin Industrial<br/>Storage Solutions</Title>
+        </h1>
+    </Container>
           <Toolbar>
-              <Link to="/">
+              <Link to="/" style={{ textDecoration: 'none' }}>
                   <div id="Home"><h1>Home</h1></div>
               </Link>
-              <div id="About">
-                  <Link to={currentUser ? "/logout" : "/login"}>
+              <Link to="/about" style={{ textDecoration: 'none' }}>
+                  <div id="About"><h1>About</h1></div>
+              </Link>
+              <div id="Logout">
+                  <Link to={currentUser ? "/logout" : "/login"} style={{ textDecoration: 'none' }}>
                       <h1>{currentUser ? "Logout" : "Login"}</h1>
                   </Link>
               </div>
@@ -134,6 +168,14 @@ function App() {
               <Item />
             </RequireAuth>
           }
+        />
+        <Route
+            path="/about"
+            element={
+                <RequireAuth>
+                    <About />
+                </RequireAuth>
+            }
         />
       </Routes>
     </Router>

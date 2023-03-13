@@ -16,50 +16,9 @@ background-color: #F0EAD6;
 i {
     display: flex;
     justify-content: center;
+    text-decoration: none;
 }
 `;
-
-const Container = styled.div`
-position: static;
-width: 1fr;
-height: 18vh;
-left: 0px;
-top: 0px;
-background-color: #094CF8C2;
-
-h1 {
-    font-size: 30px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-`;
-
-const Toolbar = styled.div`
-position: static;
-margin-top: 5px;
-width: 100%;
-height: 57px;
-left: 0px;
-top: 123px;
-background-color: #094CF8C2;
-display: grid;
-grid-template-columns: repeat(2, 50vw);
-
-#Home {
-
-}
-
-#About {
-
-}
-
-h1 {
-    font-size: 20px;
-    text-align: center;
-    color: #FFFFFF;
-}
-`
 
 const Grid = styled.div`
 position: static;
@@ -68,39 +27,55 @@ position: static;
     grid-template-columns: 33vw 15.5vw 15.5vw 1fr;
     grid-template-rows: repeat(4, 15vh);
 gap: 10px;
-margin-top: 10px;
 
 h1 {
-    font-size: 30px;
+    font-size: 50px;
     color: #FFFFFF;
     text-align: center;
     margin: 50;
+    text-decoration: none;
 }
 
     grid-template-areas: 
-      "a a a abutton"
+      "a a abutton abutton"
+      "a a abutton abutton"
       "d d dbutton dbutton"
-      "s s s s"
-      "p q q q";
+      "d d dbutton dbutton";
 
     .a {
       grid-area: a;
 background-color: #094CF8C2;
+top: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
     }
 
     .abutton {
       grid-area: abutton;
 background-color: #F8B509;
+display: flex;
+justify-content: center;
+align-items: center;
     }
 
     .d {
       grid-area: d;
         background-color: #094CF8C2;
+        display: flex;
+justify-content: center;
+align-items: center;
     }
     .dbutton {
       grid-area: dbutton;
         background-color: #F8B509;
+display: flex;
+justify-content: center;
+align-items: center;
     }
+.dbutton:hover {
+    background-color: red;
+}
 
     .s {
       grid-area: s;
@@ -123,21 +98,20 @@ export default function Home() {
         <React.Fragment>
             <Wrapper>
                 <Grid>
-                    <div className="a"><h1>Add an item</h1></div>
+                    
+                    <div className="a"><h1>Add an Item</h1></div>
                     <div className="abutton">
-                        <Link to="/NewItem"><h1><i className="fa fa-plus-square fa-2x"></i></h1></Link>
-                        <Routes>
-                            <Route path="/NewItem" element={<NewItem />} />
-                        </Routes>
+                        <Link to="/NewItem" style={{ textDecoration: 'none' }}><h1><i className="fa fa-plus-square fa-3x"></i></h1></Link>
                     </div>
-                    <div className="d"><h1>Display Statistics</h1></div>
-                    <div className="dbutton"><h1><i className="fa fa-connectdevelop fa-2x"></i></h1></div>
-                    <div className="s"><h1>Selected: </h1></div>
-                    <div className="p"><h1>Price</h1></div>
-                    <div className="q"><h1>Quantity</h1></div>
-
+                    <div className="d"><h1>View Items</h1></div>
+                    <div className="dbutton">
+                        <Link to="/viewitem" style={{ textDecoration: 'none' }}><h1><i className="fa fa-list-ul fa-3x"></i></h1></Link>
+                    </div>                 
                 </Grid>
             </Wrapper>
+            <Routes>
+                <Route path="/NewItem" element={<NewItem />} />
+            </Routes>
         </React.Fragment>
     );
 }
