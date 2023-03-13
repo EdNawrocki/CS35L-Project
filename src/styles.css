@@ -79,24 +79,43 @@ button.logout:hover{
 
 /* NEW ITEM STYLES */
 
-.newItem{
+.newItem {
     font-family: Georgia, serif;
-    height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 65vh;
+    flex-direction: row;
 }
 
-form.newItem{
-    height: 13vh;
-    width: 100%;
+.AddItem {
+    background-color: #094CF8C2;
+    width: 50vw;
+    height: 1fr;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    color: #FFFFFF;
+    font-size: larger;
+}
+
+.FormWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+form.newItem {
+    height: 1fr;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
     align-items: center;
     background-color: #094CF8C2;
 }
 
 input.newItem{
+    margin-top: 10px;
     width: 30%;
     height: 30px;
     margin: 2px;
@@ -104,7 +123,7 @@ input.newItem{
 }
 
 input.newItem{
-    width: 30%px;
+    width: 30%;
     height: 30px;
     margin: 2px;
     border: none;
