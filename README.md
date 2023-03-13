@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm install`
+
+Installs the dependencies required to run the webpage in your browser.
+
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -14,57 +18,43 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+# Using The Website
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This website is designed to function as an industrial inventory management web application.
+Users can search through items in the database, add new items to the database,
+view statistics about an item and update the current statistics to an item.
+Different users can login and logout, and their contributions to the database are tracked
+by their login email.
 
-### `npm run build`
+When the website is launched, the user is directed to login to the website.
+Until the user logs in, no other pages on the website are accessible.
+Upon login, the user is directed to the Home page. This page contains
+the Navigation bar as well as a button to view the list of current items and a button
+to add a new item. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Selecting the 'Add an Item' button directs the user to the Add Item page. On this page
+the user can enter the name of the item they want to add/update as well as the new
+quantity information about that item. The user can then use the Navigation bar to
+redirect themselves back to the Home page, or to the View Item page to see what they have
+just added.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Selecting the 'View Items' button directs the user to the View Items page. On this page
+the user can search through the current items in the database. A successful search on an item
+will direct the user to that item's personal page, where statistics can be seen about the item.
+The user is also able to scroll through the list of items, where the change in quantity for each
+entry is available as well as the user who made the change.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Selecting the button on the left side of an item's entry on the View Items page directs the 
+user to that item's personal page, where a full history of changes to the item are available,
+along with a line graph representation of the quantity of the item over time. At the bottom of 
+the item's page is a button which says 'Stop tracking Item {Item}'. Clicking this button will 
+remove this item from the database to be tracked.
 
-### `npm run eject`
+In the navigation bar we have provided an 'About' tab which gives meta-information regarding
+the creation of the project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+When the user is done with their session on the website, they can click the 'Logout' option
+in the navigation bar, which will log them out from their current session. Even after logout, all 
+changes to the database are saved and can be returned to in a future session.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
