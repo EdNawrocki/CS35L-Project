@@ -58,6 +58,7 @@ display: flex;
 justify-content: center;
 align-items: center;
     }
+.abutton:hover{background-color: #f7db08;}
 
     .d {
       grid-area: d;
@@ -74,23 +75,8 @@ justify-content: center;
 align-items: center;
     }
 .dbutton:hover {
-    background-color: red;
+    background-color: #f7db08;
 }
-
-    .s {
-      grid-area: s;
-background-color: #094CF8C2;
-    }
-
-    .p {
-      grid-area: p;
-background-color: #094CF8C2;
-    }
-
-    .q {
-      grid-area: q;
-background-color: #094CF8C2;
-    }
 `;
 
 export default function Home() {
@@ -100,13 +86,14 @@ export default function Home() {
                 <Grid>
                     
                     <div className="a"><h1>Add an Item</h1></div>
-                    <div className="abutton">
-                        <Link to="/NewItem" style={{ textDecoration: 'none' }}><h1><i className="fa fa-plus-square fa-3x"></i></h1></Link>
-                    </div>
+                    <Link to="/NewItem" style={{ textDecoration: 'none' }} className="abutton">
+                        <h1><i className="fa fa-plus-square fa-3x"></i></h1>
+                    </Link>
                     <div className="d"><h1>View Items</h1></div>
-                    <div className="dbutton">
-                        <Link to="/viewitem" style={{ textDecoration: 'none' }}><h1><i className="fa fa-list-ul fa-3x"></i></h1></Link>
-                    </div>                 
+                    <Link to="/viewitem" style={{ textDecoration: 'none' }} className="dbutton">
+                        <h1><i className="fa fa-list-ul fa-3x"></i></h1>
+                        
+                    </Link>           
                 </Grid>
             </Wrapper>
             <Routes>

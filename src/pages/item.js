@@ -3,6 +3,38 @@ import { getFirestore, doc, deleteDoc } from "firebase/firestore"
 import { useState ,React } from "react"
 import Chart from 'chart.js/auto'
 import Plot from 'react-plotly.js'
+import styled from 'styled-components';
+
+const Container = styled.div`
+
+display: grid;
+grid-template-rows:  1fr 15vh;
+grid-template-columns:50vw 1fr;
+grid-template-areas:
+"H G"
+"S S";
+gap: 10px;
+
+.History{ grid-area: H; background-color: #094CF8C2; color: #FFFFFF; }
+.HistoryText {margin-left: 20px; font-family: Georgia, serif; }
+.Graph{grid-area: G;}
+
+.Stop{grid-area: S;}
+
+button.Stop {
+    width: 100%;
+    height: 15vh;
+    border: none;
+    background-color: #f7b308;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    align-items: center;
+}
+
+button.Stop:hover {background-color: #f7db08;}
+
+`
 
 function Item() {
     // list of all pertinent objects is imported as: 
@@ -74,7 +106,9 @@ function Item() {
     //var temp = title;    
     return(
         <>
-            <h1>{title}'s History:</h1>
+            <Container>
+                <div className="History"><div className="HistoryText">
+                    <h1>{title}&apos;s History:</h1>
             {location.state.itemHistory.map((item) => {         // return a list of item names and quantities
                 return (
                     <li key={item.id}>{item.name}    {item.quantity}    {item.user}</li>
@@ -82,9 +116,12 @@ function Item() {
             })}
             <br></br>
             <b>Current Stock:</b>
-            <p>{location.state.isItemSearch && total}</p>
-            {location.state.isItemSearch && <button onClick={handleDelete}>Stop Tracking Item {location.state.item.name}</button>}
-            {error && <span>ERROR DELETING</span>}
+                    <p>{location.state.isItemSearch && total}</p>
+                </div></div>
+            <div className="Stop">{location.state.isItemSearch && <button className="Stop" onClick={handleDelete}><h1>Stop Tracking Item {location.state.item.name}</h1></button>}
+            {error && <span>ERROR DELETING</span>}</div>
+                
+                <div className="Graph">
             <Plot
             data= {[
                 {
@@ -99,8 +136,9 @@ function Item() {
                 text: "Quantity"
                     }
                 }   
-            }}/>
-            
+                        }} />
+                    </div>
+            </Container>
         </>
         
     );

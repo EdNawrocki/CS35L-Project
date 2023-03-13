@@ -23,6 +23,7 @@ height: 18vh;
 background-color: #094CF8C2;
 
 h1 {
+    font-family: Georgia, serif;
     font-size: 30px;
     color: #FFFFFF;
 }
@@ -42,12 +43,15 @@ left: 0px;
 top: 123px;
 background-color: #094CF8C2;
 display: grid;
-grid-template-columns: repeat(3, 32vw);
+grid-template-columns: repeat(5, 20vw);
 
 
 #Home {
 text-decoration: none;
 }
+
+#VIEWITEM {}
+#NEWITEM {}
 
 #About {
 
@@ -115,6 +119,12 @@ function App() {
           <Toolbar>
               <Link to="/" style={{ textDecoration: 'none' }}>
                   <div id="Home"><h1>Home</h1></div>
+              </Link>
+              <Link to="/viewitem" style={{ textDecoration: 'none' }}>
+                  <div id="VIEWITEM"><h1>View Items</h1></div>
+              </Link>
+              <Link to="/newitem" style={{ textDecoration: 'none' }}>
+                  <div id="NEWITEM"><h1>New Item</h1></div>
               </Link>
               <Link to="/about" style={{ textDecoration: 'none' }}>
                   <div id="About"><h1>About</h1></div>
