@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Clone the Repository:
+
+`git clone https://github.com/EdNawrocki/CS35L-Project`
+
+`cd CS35L-Project`
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -39,10 +45,7 @@ redirect themselves back to the Home page, or to the View Item page to see what 
 just added.
 
 Selecting the 'View Items' button directs the user to the View Items page. On this page
-the user can search through the current items in the database. A successful search on an item
-will direct the user to that item's personal page, where statistics can be seen about the item.
-The user is also able to scroll through the list of items, where the change in quantity for each
-entry is available as well as the user who made the change.
+the user can search through the current items in the database with the search bar. A successful search on an item will direct the user to that item's personal page, where statistics can be seen about the item. Additionally, the search bar can be used to search for any user's email to see that user's contribution history to the database. The user is also able to scroll through the list of items, where the change in quantity for each entry is available as well as the user who made the change.
 
 Selecting the button on the left side of an item's entry on the View Items page directs the 
 user to that item's personal page, where a full history of changes to the item are available,

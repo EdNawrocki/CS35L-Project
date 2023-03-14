@@ -111,18 +111,18 @@ function Item() {
                     <h1>{title}&apos;s History:</h1>
             {location.state.itemHistory.map((item) => {         // return a list of item names and quantities
                 return (
-                    <li key={item.id}>{item.name}    {item.quantity}    {item.user}</li>
+                    <li key={item.id}>{item.name}    {item.quantity}    {location.state.isItemSearch && item.user}</li>
                 );
             })}
             <br></br>
-            <b>Current Stock:</b>
+            {location.state.isItemSearch && <b>Current Stock:</b>}
                     <p>{location.state.isItemSearch && total}</p>
                 </div></div>
             <div className="Stop">{location.state.isItemSearch && <button className="Stop" onClick={handleDelete}><h1>Stop Tracking Item {location.state.item.name}</h1></button>}
             {error && <span>ERROR DELETING</span>}</div>
                 
                 <div className="Graph">
-            <Plot
+                {location.state.isItemSearch && <Plot
             data= {[
                 {
                 x: xAxis,
@@ -135,8 +135,12 @@ function Item() {
                 yaxis: {title: {
                 text: "Quantity"
                     }
-                }   
-                        }} />
+                },
+                xaxis: {title: {
+                    text: "Time"
+                        }
+                    }   
+                        }} />}
                     </div>
             </Container>
         </>
