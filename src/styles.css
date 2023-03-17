@@ -18,7 +18,8 @@ form.login{
 }
 
 input.login{
-    width: 225px;
+    display: flex;
+    width: 75%;
     height: 30px;
     margin: 2px;
     font-weight: 500;
